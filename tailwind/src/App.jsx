@@ -10,12 +10,13 @@ function App() {
   return (
   <>
   
-  <h1 className='bg-green-500'>
-    chill ma hai
+  <h1 className='bg-blue-500'>
+    AJ IS OG
   </h1> 
   <br />
   
     <Card username="sandesh" btntext="hire me"/><br />
+    <Card  btntext="sallu bhai"/><br />
     
 
   
