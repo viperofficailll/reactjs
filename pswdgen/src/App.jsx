@@ -16,6 +16,7 @@ function App() {
     for (let i = 1; i < length; i++) {
       let char = Math.floor(Math.random() * string.length + 1);
       pass = string.charAt(char);
+      let x= 1
     }
     setPassword(pass);
   }, [length, number, character, password]);
