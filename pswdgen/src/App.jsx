@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback,useEffect,useRef } from "react";
 
 import "./App.css";
 
@@ -15,22 +15,33 @@ function App() {
     if (character) string = string + "!@#$%^&*()";
     for (let i = 1; i < length; i++) {
       let char = Math.floor(Math.random() * string.length + 1);
-      pass = string.charAt(char);
+      pass += string.charAt(char);
       let x= 1
     }
     setPassword(pass);
   }, [length, number, character, password]);
+  useEffect(()=>{passwordGenerator()},[length,setLength,setCharacter,setPassword])
+  const passwordRef = useRef(null)
+  const copyPassWordToClipBoard = useCallback(() => { 
+    window.navigator.clipboard.writeText(password)
+  },[password])
+
 
   return (
-    <>
+    <><div className="text-center">
+      <h1 className="font-bold text-white">PASSWORD GENERATOR</h1>
+    </div>
+    
       <div className="w-full max-w-md mx-auto shadow-md rounded-lg px-4 my-8 text-red-500 bg-gray-500 ">
         <div className="flex">
           <input
             type="text"
             value={password}
+            ref={passwordRef}
             className="outline-none w-full py-1 px-3 bg-white-500 text-blue-500 placeholder:password read-only border-radius-10px"
           ></input>
-          <button className="outline-none bg-blue-500 text-white px-4 py-4">
+          <button className="outline-none bg-blue-500 text-white px-4 py-4"
+          onClick={copyPassWordToClipBoard}>
             copy
           </button>
         </div>
