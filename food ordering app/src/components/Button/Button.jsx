@@ -3,8 +3,16 @@ import React from 'react'
 function Button() {
   return (
     <div>
-      <button className='bg-slate-500 border-black border-spacing-1 px-4 py-4 border-x-black mx-4  hover:bg-red-500'>HOME</button> 
-     
+      <div class="flex flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0">
+  <button
+    type="button"
+    class="rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-black/80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+  >
+    search
+  </button>
+  
+</div>
+
     </div>
   )
 }
